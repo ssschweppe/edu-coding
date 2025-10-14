@@ -1,9 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(1vw / 14.4);
+}
+
 body {
-  margin-left: 0.69vw;
   font-family: "PT Root UI", Arial, Helvetica, sans-serif;
+  background-color: #aaff00;
+  font-size: 14rem;
+  color: black;
 }
 
 h1 {
+  -webkit-text-stroke: 1px black;
   text-align: center;
   font-size: 6.94vw;
   font-weight: 700;
@@ -19,4 +30,59 @@ h3 {
   font-weight: 400;
   margin-top: 2.78vw;
   margin-bottom: 0.69vw;
+}
+
+h1,
+h2,
+h3 {
+  color: rgb(255, 0, 0);
+}
+
+.zaglushka {
+  margin: 20px 0 0 0;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  background: linear-gradient(
+    #aaff00,
+    #000,
+    #fff,
+    25%,
+    red,
+    50%,
+    #fff,
+    75%,
+    #000,
+    #aaff00
+  );
+}
+
+.zaglushka h1 {
+  height: max-content;
+  color: white;
+  font-size: 100rem;
+  line-height: 100rem;
+}
+
+.zaglushka h1 {
+  text-align: left;
+}
+
+.zaglushka p {
+  line-height: 16rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 20rem;
+  justify-content: center;
+}
+
+input[name="message"] {
+  width: 40%;
+}
+
+img {
+  width: 50%;
 }

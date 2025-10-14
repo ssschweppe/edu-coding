@@ -17,5 +17,64 @@
     <a href="pages/articles/plants.html">статья номер раз</a>
     <h3>тесты</h3>
     <a href="pages/tests/test1.html">тест номер раз</a>
+
+    <div class="zaglushka">
+      <div class="text">
+        <h1>Йо, на связи пупуньк</h1>
+        <p>здесь будет много прикольчиков глуповых. следи за обновлениями!!</p>
+
+        <form
+          id="my-form"
+          action="https://formspree.io/f/mjkapzzj"
+          method="POST"
+        >
+          <label>напиши анекдот:</label>
+          <input type="text" name="message" />
+          <button id="my-form-button">закинуть</button>
+          <p id="my-form-status"></p>
+        </form>
+      </div>
+
+      <div class="image">
+        <img src="./img/sosat.png" alt="пососи" />
+      </div>
+    </div>
+
+    <script>
+      var form = document.getElementById("my-form");
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("my-form-status");
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              status.innerHTML = "СПАСИБО, ПАПИЩЕК";
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                if (Object.hasOwn(data, "errors")) {
+                  status.innerHTML = data["errors"]
+                    .map((error) => error["message"])
+                    .join(", ");
+                } else {
+                  status.innerHTML = "упси, что-то сломалось";
+                }
+              });
+            }
+          })
+          .catch((error) => {
+            status.innerHTML = "упси, что-то сломалось";
+          });
+      }
+      form.addEventListener("submit", handleSubmit);
+    </script>
   </body>
 </html>
